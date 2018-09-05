@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array-Element</title>
+</head>
+<body>
+<form>
+    <table>
+        <tr>
+            <td><b>Input your element:</b></td>
+            <td><input id="element" type="number"></td>
+            <input type = button
+                    onclick="add()"
+                    value="add">
+            <input type = button
+                   onclick="Display()"
+                   value="Display">
+
+        </tr>
+        <div>
+            Your element:
+            <output id="Display" ></output>
+        </div>
+    </table>
+</form>
+<script>
+    function add(){
+        let element = document.getElementById("element").value;
+        element = parseInt(element);
+        let array = Array();
+        array.push(element);
+    }
+    function Display(){
+        let d="<hr/>";
+        for (let i = 0; i<array.length;i++){
+            d+="Element" +i+" = " + array[i] + "<br/>"
+        }
+    }
+</script>
+</body>
+</html>
