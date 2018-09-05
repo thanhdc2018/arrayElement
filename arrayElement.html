@@ -9,34 +9,46 @@
     <table>
         <tr>
             <td><b>Input your element:</b></td>
-            <td><input id="element" type="number"></td>
-            <input type = button
-                    onclick="add()"
-                    value="add">
-            <input type = button
-                   onclick="Display()"
-                   value="Display">
+
 
         </tr>
-        <div>
-            Your element:
-            <output id="Display" ></output>
-        </div>
+        <tr>
+            <td>
+                <input id="element" type="number">
+                <input type=button
+                       onclick="add()"
+                       value="add">
+                <input type=button
+                       onclick="display()"
+                       value="Display">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Your element:
+                <output id="Display"></output>
+            </td>
+        </tr>
     </table>
 </form>
-<script>
-    function add(){
-        let element = document.getElementById("element").value;
-        element = parseInt(element);
-        let array = Array();
-        array.push(element);
+<script>//hàm vẫn chưa refresh ô nhập sau khi "add""
+let array = Array();
+
+function add() {
+    let element = document.getElementById("element").value;
+    element = parseInt(element);
+    array.push(element);
+    console.log(array);
+    return array;
+}
+
+function display() {
+    let d = "<br/>";
+    for (let i = 0; i < array.length; i++) {
+        d += "Element " + (parseInt(i)+1) + " = " + array[i] + "<br/>";
     }
-    function Display(){
-        let d="<hr/>";
-        for (let i = 0; i<array.length;i++){
-            d+="Element" +i+" = " + array[i] + "<br/>"
-        }
-    }
+    document.getElementById("Display").innerHTML = d;
+}
 </script>
 </body>
 </html>
